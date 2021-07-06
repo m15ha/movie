@@ -18,13 +18,40 @@
     ></script>
 
     <script>
+      const Book = (props) => {
+        console.log(props);
+        return React.createElement("div", {}, [
+          React.createElement("h2", {}, props.name),
+          React.createElement("p", {}, props.year),
+          React.createElement("p", {}, props.price),
+        ]);
+      };
 
-      const
       const App = () => {
-          return React.createElement("h1", {id: 'hello'}, 'Hello from React')
-      }
+        return React.createElement("div", {}, [
+          React.createElement(
+            "h1",
+            { id: "hello", className: "class1" },
+            "Hello from React"
+          ),
+          React.createElement(Book, {
+            name: "Java script",
+            year: 2010,
+            price: "90$",
+          }),
+          React.createElement(Book, {
+            name: "React",
+            year: 2011,
+            price: "90$",
+          }),
+          React.createElement(Book, { name: "Java", year: 2014, price: "80$" }),
+        ]);
+      };
 
-      ReactDOM.render(React.createElement(App), document.getElementById('root'));
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById("root")
+      );
     </script>
   </body>
 </html>
